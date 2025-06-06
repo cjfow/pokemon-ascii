@@ -4,7 +4,7 @@ public class Character
 {
     // removed setters to make it immutable after construction (data safety)
     public string Name { get; }
-    public Pokemon Pokemon { get; set; }
+    public Pokemon Pokemon { get; }
     public bool AttackingFirst { get; }
     public Character(string name, string pokemon, bool isAttackingFirst)
     {

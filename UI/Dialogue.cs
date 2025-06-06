@@ -29,9 +29,21 @@ public static class Dialogue
 
         Console.Write("Enter your choice (1-4): ");
         int choice;
+
+        int fails = 0;
+        const int maxFails = 5;
+
         while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 4)
         {
-            Console.WriteLine("Invalid input. Please enter a number: 1 - 4");
+            fails++;
+            if (fails >= maxFails)
+            {
+                Console.WriteLine("Too many invalid attempts. Turn skipped.");
+                choice = 4;
+                break;
+            }
+
+            Console.Write("Invalid input. Please enter a number (1-4): ");
         }
 
         return BattleMenuHandler(user, enemy, round, choice);
